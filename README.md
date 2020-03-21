@@ -27,6 +27,15 @@ Ejercicios básicos
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un sonido sonoro
      y su periodo de pitch; y, en otro *subplot*, se vea con claridad la autocorrelación de la señal y la
 	 posición del primer máximo secundario.
+**` Podemos observar el código de comparación entre la señal (audio diciendo la vocal 'a' continuamente) y el cálculo de su pitch a partir de la autocorrelación. Primera implementación con Matlab:`**
+
+<img src="img/matlab_code.png" width="640" align="center">
+
+**`Simplemente se lee la señal utilizando la función de Matlab audioread, ploteamos esta y calculamos la autocorrelación utilizando una código muy similar al del apartado anterior:`**
+
+<img src="img/matlab_image.png" width="640" align="center">
+
+**` La gráfica está representada en muestras, y nos da un pitch aproximado de 122 muestras. Por tanto, nos da un pitch de f = 131Hz`**
 
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la librería matplotlib de Python.
