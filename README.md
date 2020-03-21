@@ -13,7 +13,14 @@ Ejercicios básicos
 - Complete el código de los ficheros necesarios para realizar la detección de pitch usando el programa
   `get_pitch`.
 
-   * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.
+* Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.
+
+**`Podemos ver que hemos seguido la fórmula que en su momento se no explicó en clase:`**
+
+
+**`Aquí podemos ver el código del cálculo de la autocorrelación.`**
+
+
 
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un sonido sonoro
      y su periodo de pitch; y, en otro *subplot*, se vea con claridad la autocorrelación de la señal y la
