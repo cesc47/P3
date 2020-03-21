@@ -8,11 +8,17 @@ using namespace std;
 
 /// Name space of UPC
 namespace upc {
-  void PitchAnalyzer::autocorrelation(const vector<float> &x, vector<float> &r) const {
-
-    for (unsigned int l = 0; l < r.size(); ++l) {
-  		/// \TODO Compute the autocorrelation r[l]
+  void PitchAnalyzer::autocorrelation(const vector<float> &x, vector<float> &r) const { //x entrada
+        //TODO compute the autocorrelation r[l]
+    for (unsigned int k = 0; k < r.size(); ++k) {
+        for(unsigned int i = 0; i < (x.size() - k); ++i){ 
+            r[k] += x[i] * x[i+k];
+        }
+      r[k] /= x.size(); 
     }
+    for (unsigned int k = 0; k < r.size(); ++k) cout << "Muestra de r" << k << ": " << r[k] << '\n';
+    for (unsigned int i = 0; i < x.size(); ++i) cout << "Muestra de x" << i << ": " << x[i] << '\n';
+
 
     if (r[0] == 0.0F) //to avoid log() and divide zero 
       r[0] = 1e-10; 
@@ -25,12 +31,19 @@ namespace upc {
     window.resize(frameLen);
 
     switch (win_type) {
-    case HAMMING:
+      case HAMMING:
       /// \TODO Implement the Hamming window
+       // Finestra de Hamming
+        for(int i = 0; i < window.size(); i++) {
+            window[i] = 0.53836 - 0.46164 * cos(2 * 3.1415926535898 * i / (window.size()-1));  //float a0 = 0.53836; float a1 = 0.46164;
+        }
+
       break;
-    case RECT:
-    default:
-      window.assign(frameLen, 1);
+      
+      case RECT:
+    
+      default:
+        window.assign(frameLen, 1);
     }
   }
 
@@ -61,7 +74,7 @@ namespace upc {
     for (unsigned int i=0; i<x.size(); ++i)
       x[i] *= window[i];
 
-    vector<float> r(npitch_max);
+    vector<float> r(npitch_max);      //npitch_max = K
 
     //Compute correlation
     autocorrelation(x, r);
