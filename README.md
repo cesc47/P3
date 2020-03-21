@@ -16,11 +16,11 @@ Ejercicios básicos
    * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.
 
 
-**`Podemos ver que hemos seguido la fórmula que en su momento se no explicó en clase:`**
+**`Podemos ver que hemos seguido la fórmula que en su momento se nos explicó en clase:`**
 
 <img src="img/autoc_form.JPG" width="640" align="center">
 
-**`Aquí podemos ver el código del cálculo de la autocorrelación.`**
+**`Aquí podemos ver el código del cálculo de la autocorrelación. Podemos ver que hemos sido fieles con los nombres de los índices (los 'i' y 'k' que salen en la fórmula de teoria)`**
 
 <img src="img/autoc.png" width="640" align="center">
 
