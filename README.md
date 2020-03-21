@@ -42,6 +42,13 @@ Ejercicios básicos
 
 **`El resultado es de aproximadamente 108 muestras por lo que nos queda una frecuencia de 148Hz.`**
 
+**`Opcionalmente, después de verificar los cáclulos en matlab, nos hemos instalado la librería matplotlib y hemos hecho también las gráficas con Python, para ir adquiriendo conocimientos. Podemos observar que el resultado es el mismo. Aquí podemos ver el código de Python comentado, con la gráfica adjuntada si ejecutamos el código debajo.`**
+
+<img src="img/autoc_py.png" width="640" align="center">
+
+<img src="img/autoc_py2.png" width="640" align="center">
+
+
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la librería matplotlib de Python.
 
