@@ -27,7 +27,8 @@ Ejercicios básicos
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un sonido sonoro
      y su periodo de pitch; y, en otro *subplot*, se vea con claridad la autocorrelación de la señal y la
 	 posición del primer máximo secundario.
-**` Podemos observar el código de comparación entre la señal (audio diciendo la vocal 'a' continuamente) y el cálculo de su pitch a partir de la autocorrelación. Primera implementación con Matlab:`**
+	 
+**` Podemos observar el código de comparación entre la señal (audio diciendo la vocal 'a' continuamente, sonido sonoro) y el cálculo de su pitch a partir de la autocorrelación. Primera implementación con Matlab:`**
 
 <img src="img/matlab_code.png" width="640" align="center">
 
