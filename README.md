@@ -15,6 +15,15 @@ Ejercicios básicos
 
    * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.
 
+
+**`Podemos ver que hemos seguido la fórmula que en su momento se no explicó en clase:`**
+
+<img src="img/autoc_form.JPG" width="640" align="center">
+
+**`Aquí podemos ver el código del cálculo de la autocorrelación.`**
+
+<img src="img/autoc.png" width="640" align="center">
+
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un sonido sonoro
      y su periodo de pitch; y, en otro *subplot*, se vea con claridad la autocorrelación de la señal y la
 	 posición del primer máximo secundario.
