@@ -36,7 +36,11 @@ Ejercicios básicos
 
 <img src="img/matlab_image.png" width="640" align="center">
 
-**` La gráfica está representada en muestras, y nos da un pitch aproximado de 122 muestras. Por tanto, nos da un pitch de f = 131Hz`**
+**` La gráfica está representada en muestras, y nos da un pitch aproximado de 122 muestras. Por tanto, nos da un pitch de f = 131Hz. Como la señal es sonora, sabemos que la autocorrelación debe de ser periódica y del mismo periodo. Lo comprobamos mirando el periodo de la señal original`**
+
+<img src="img/matlab_image2.png" width="640" align="center">
+
+**`El resultado es de aproximadamente 108 muestras por lo que nos queda una frecuencia de 148Hz.`**
 
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la librería matplotlib de Python.
