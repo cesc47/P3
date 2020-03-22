@@ -92,6 +92,10 @@ Ejercicios básicos
 		(r[0]), la autocorrelación normalizada de uno (r1norm = r[1] / r[0]) y el valor de la
 		autocorrelación en su máximo secundario (rmaxnorm = r[lag] / r[0]).
 
+		**`Podemos observar la señal y el cálculo de su pitch. La señal debe tener un pitch aproximadamente constante debido a que se trata de la repetición de la vocal a `**
+		
+		 <img src="img/f0.png" width="640" align="center">
+
 		Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
 
 	    Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que
