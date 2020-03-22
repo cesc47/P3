@@ -57,7 +57,7 @@ Ejercicios básicos
 
 <img src="img/compute_pitch.png" width="640" align="center">
 
-<img src="img/compute_pitch_fo.png" width="640" align="center">
+<img src="img/compute_pitch_f0.png" width="640" align="center">
 
 <img src="img/compute_pitch_terminal.png" width="640" align="center">
 
