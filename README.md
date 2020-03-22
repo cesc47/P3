@@ -55,6 +55,12 @@ Ejercicios básicos
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
 
+<img src="img/compute_pitch.png" width="640" align="center">
+
+<img src="img/compute_pitch_fo.png" width="640" align="center">
+
+<img src="img/compute_pitch_terminal.png" width="640" align="center">
+
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
 - Una vez completados los puntos anteriores, dispondrá de una primera versión del detector de pitch. El 
