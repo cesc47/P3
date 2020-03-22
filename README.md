@@ -95,6 +95,14 @@ Ejercicios básicos
 		**`Podemos observar la señal y el cálculo de su pitch. La señal debe tener un pitch aproximadamente constante debido a que se trata de la repetición de la vocal a `**
 		
 		 <img src="img/f0_1.png" width="640" align="center">
+		 
+		 **`Los candidatos a la sonoridad de voz son los siguientes para cada trama: `**
+		 
+		 <img src="img/r(0)_values.png" width="640" align="center">
+		 
+		 **` Para cada trama, tenemos representado: el valor de la autocorrelación en el pitch, seguidamente la potencia de esa trama realizado con el 10log(r(0)) (aprox de -20 dB), además de la autocorrelación normalizada (aprox 0.9) y en su máximo secundario (aprox 0.6). Estos valores corresponden a un tramo de señal sonora. Si lo realizamos con una señal aleatoria: `**
+		 
+		 
 
 		Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
 
