@@ -63,6 +63,12 @@ namespace upc {
     /// \TODO Implement a rule to decide whether the sound is voiced or not.
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
+    
+    
+    if (r1norm > 0.9 || rmaxnorm > 0.6){
+      return false;
+    }
+
     return true;
   }
 
@@ -81,30 +87,37 @@ namespace upc {
 
     vector<float>::const_iterator iR = r.begin(), iRMax = iR;
 
-    /// \TODO 
-	/// Find the lag of the maximum value of the autocorrelation away from the origin.<br>
-	/// Choices to set the minimum value of the lag are:
-	///    - The first negative value of the autocorrelation.
-	///    - The lag corresponding to the maximum value of the pitch.
-    ///	   .
-	/// In either case, the lag should not exceed that of the minimum value of the pitch.
+    /// \HECHO 
+    /// Find the lag of the maximum value of the autocorrelation away from the origin.<br>
 
-    for (iR = r.begin(); iR != r.end(); ++iR){
-        if (iR > (r.begin() + npitch_min) && *iRMax<*iR && iR < (r.begin() + npitch_max)){
-          iRMax = iR;
-        }
-    }    
+    /// The first negative value of the autocorrelation.
+    while(*iR > 0)  iR++;   	
 
+    /// In either case, the lag should not exceed that of the minimum value of the pitch.
+    if (iR < (r.begin() + npitch_min))  iR += npitch_min; 
+    
+    iRMax = iR; 
+
+    while(iR != r.end()){     
+      if(*iR > *iRMax)  iRMax = iR;       // Posición donde está el máximo 
+      iR++;                               // Aumentamos iterador para ver si encontramos otro.
+    }
+
+    /// The lag corresponding to the maximum value of the pitch.
     unsigned int lag = iRMax - r.begin();
+    
+#if 1
+    cout << "valor autocorrelación: " << *iRMax << '\t' << "lag:" << lag << endl; 
+#endif
 
     float pot = 10 * log10(r[0]);
 
     //You can print these (and other) features, look at them using wavesurfer
     //Based on that, implement a rule for unvoiced
     //change to #if 1 and compile
-#if 0
+#if 1
     if (r[0] > 0.0F)
-      cout << pot << '\t' << r[1]/r[0] << '\t' << r[lag]/r[0] << endl;
+      cout << "pow: " << pot << '\t' << "Th1: " <<r[1]/r[0] << '\t' << "Th2: " << r[lag]/r[0] << endl;
 #endif
     
     if (unvoiced(pot, r[1]/r[0], r[lag]/r[0]))
