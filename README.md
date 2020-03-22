@@ -55,11 +55,14 @@ Ejercicios básicos
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
 
+**`Podemos observar el código usado para determinar el mejor candidato para el periodo de pitch en el siguinete fragmento:`**
 <img src="img/compute_pitch.png" width="640" align="center">
+
+**`El resultado, mostrando por pantalla, del código anterior es el siguiente:`**
 
 <img src="img/compute_pitch_f0.png" width="640" align="center">
 
-<img src="img/compute_pitch_terminal.png" width="640" align="center">
+**`Los resultados son los periodos de pitch estimados en cada trama de 30ms (desplazadas cada 15ms). La señal usada es la misma que en el apartado anterior, una señal con un sonido vocálico 'a' constante. Podemos apreciar como los valores oscilan sobre los 133Hz, un valor muy similar al obtenido con los códigos de matlab y python anteriores.`**
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
