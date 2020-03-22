@@ -56,6 +56,7 @@ Ejercicios básicos
      autocorrelación. Inserte a continuación el código correspondiente.
 
 **`Podemos observar el código usado para determinar el mejor candidato para el periodo de pitch en el siguinete fragmento:`**
+
 <img src="img/compute_pitch.png" width="640" align="center">
 
 **`El resultado, mostrando por pantalla, del código anterior es el siguiente:`**
