@@ -94,7 +94,7 @@ Ejercicios básicos
 
 		**`Podemos observar la señal y el cálculo de su pitch. La señal debe tener un pitch aproximadamente constante debido a que se trata de la repetición de la vocal a `**
 		
-		 <img src="img/f0.png" width="640" align="center">
+		 <img src="img/f0_1.png" width="640" align="center">
 
 		Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
 
