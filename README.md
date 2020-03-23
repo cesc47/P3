@@ -102,7 +102,17 @@ Ejercicios básicos
 		 
 		 **` Para cada trama, tenemos representado: el valor de la autocorrelación en el pitch, seguidamente la potencia de esa trama realizado con el 10log(r(0)) (aprox de -20 dB), además de la autocorrelación normalizada (aprox 0.9) y en su máximo secundario (aprox 0.6). Estos valores corresponden a un tramo de señal sonora. Si lo realizamos con una señal aleatoria: `**
 		 
+		**`Para la mejora de decisión si es sonoro o sordo, hemos mejorado el sistema utilizando la tasa de cruces por cero con el siguiente código (basado en el cálculo realizado en la práctica 1), además hemos utilizado la potencia para establecer más condiciones en la condición: `**
+		
+		<img src="img/update_compute_pitch.png" width="640" align="center">
+		
+		**`Hemos añadido tres variables (noise_power, ZCR_threshold y number_frames) donde las dos primeras serán para establecer un umbral a partir de la primera trama (cuando number_frame = 0). Estos valores los utilizaremos para decidir si la trama es sorda o sonora en la función unvoiced. Nos queda de la manera siguiente:  `**
 		 
+		 <img src="img/nuevo_unvoiced.png" width="640" align="center">
+		 
+		 **` El resultado de una señal de voz de prueba en la cual decimos la palabra mama es la siguiente:`**
+		 
+		  <img src="img/mama.png" width="640" align="center">
 
 		Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
 
