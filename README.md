@@ -140,6 +140,10 @@ Recuerde configurar los paneles de datos para que el desplazamiento de ventana s
    * Inserte una gráfica en la que se vea con claridad el resultado de su detector de pitch junto al del
      detector de Wavesurfer. Aunque puede usarse Wavesurfer para obtener la representación, se valorará
 	 el uso de alternativas de mayor calidad (particularmente Python).
+	 
+   **` El resultado de la comparación utilizando el wavesurfer es el siguiente:`**
+   
+   <img src="img/pitch_comparation.png" width="640" align="center">
    
 
 Ejercicios de ampliación
