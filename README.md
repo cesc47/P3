@@ -115,6 +115,8 @@ Ejercicios básicos
 		  <img src="img/mama.png" width="640" align="center">
 
 		Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
+		
+**`Si añadimos la tasa de cruces por cero, la puntuación total disminuye. Hemos provado con diferentes umbrales pero no conseguimos subirla. Por lo tanto, lo hemos dejado comentado. Lo probaremos luego cuando hagamos las ampliaciones.`**
 
 	    Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que
 		en esta práctica es de 15 ms.
@@ -127,6 +129,12 @@ Ejercicios básicos
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
 	`pitch_db/train`..
 
+**` Aquí podemos ver como ha quedado la puntuación total después de haber ajustado bien los umbrales:`**
+
+**` La condición para voiced y unvoiced ha sido la siguiente: `**
+
+   
+   
    * Inserte una gráfica en la que se vea con claridad el resultado de su detector de pitch junto al del
      detector de Wavesurfer. Aunque puede usarse Wavesurfer para obtener la representación, se valorará
 	 el uso de alternativas de mayor calidad (particularmente Python).
