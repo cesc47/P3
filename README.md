@@ -92,38 +92,37 @@ Ejercicios básicos
 		(r[0]), la autocorrelación normalizada de uno (r1norm = r[1] / r[0]) y el valor de la
 		autocorrelación en su máximo secundario (rmaxnorm = r[lag] / r[0]).
 
-		**`Podemos observar la señal y el cálculo de su pitch. La señal debe tener un pitch aproximadamente constante debido a que se trata de la repetición de la vocal a `**
+**`Podemos observar la señal y el cálculo de su pitch. La señal debe tener un pitch aproximadamente constante debido a que se trata de la repetición de la vocal a `**
 		
-		 <img src="img/f0_1.png" width="640" align="center">
+<img src="img/f0_1.png" width="640" align="center">
 		 
-		 **`Los candidatos a la sonoridad de voz son los siguientes para cada trama: `**
+**`Los candidatos a la sonoridad de voz son los siguientes para cada trama: `**
 		 
-		 <img src="img/r(0)_values.png" width="640" align="center">
+<img src="img/r(0)_values.png" width="640" align="center">
 		 
-		 **` Para cada trama, tenemos representado: el valor de la autocorrelación en el pitch, seguidamente la potencia de esa trama realizado con el 10log(r(0)) (aprox de -20 dB), además de la autocorrelación normalizada (aprox 0.9) y en su máximo secundario (aprox 0.6). Estos valores corresponden a un tramo de señal sonora. Si lo realizamos con una señal aleatoria: `**
+**` Para cada trama, tenemos representado: el valor de la autocorrelación en el pitch, seguidamente la potencia de esa trama realizado con el 10log(r(0)) (aprox de -20 dB), además de la autocorrelación normalizada (aprox 0.9) y en su máximo secundario (aprox 0.6). Estos valores corresponden a un tramo de señal sonora. Si lo realizamos con una señal aleatoria: `**
 		 
-		**`Para la mejora de decisión si es sonoro o sordo, hemos mejorado el sistema utilizando la tasa de cruces por cero con el siguiente código (basado en el cálculo realizado en la práctica 1), además hemos utilizado la potencia para establecer más condiciones en la condición: `**
+**`Para la mejora de decisión si es sonoro o sordo, hemos mejorado el sistema utilizando la tasa de cruces por cero con el siguiente código (basado en el cálculo realizado en la práctica 1), además hemos utilizado la potencia para establecer más condiciones en la condición: `**
 		
-		<img src="img/update_compute_pitch.png" width="640" align="center">
+<img src="img/update_compute_pitch.png" width="640" align="center">
 		
-		**`Hemos añadido tres variables (noise_power, ZCR_threshold y number_frames) donde las dos primeras serán para establecer un umbral a partir de la primera trama (cuando number_frame = 0). Estos valores los utilizaremos para decidir si la trama es sorda o sonora en la función unvoiced. Nos queda de la manera siguiente:  `**
+**`Hemos añadido tres variables (noise_power, ZCR_threshold y number_frames) donde las dos primeras serán para establecer un umbral a partir de la primera trama (cuando number_frame = 0). Estos valores los utilizaremos para decidir si la trama es sorda o sonora en la función unvoiced. Nos queda de la manera siguiente:  `**
 		 
-		 <img src="img/nuevo_unvoiced.png" width="640" align="center">
+<img src="img/nuevo_unvoiced.png" width="640" align="center">
 		 
-		 **` El resultado de una señal de voz de prueba en la cual decimos la palabra mama es la siguiente:`**
+**` El resultado de una señal de voz de prueba en la cual decimos la palabra mama es la siguiente:`**
 		 
-		  <img src="img/mama.png" width="640" align="center">
+<img src="img/mama.png" width="640" align="center">
 
-		Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
+Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
 		
-**`Si añadimos la tasa de cruces por cero, la puntuación total disminuye. Hemos provado con diferentes umbrales pero no conseguimos subirla. Por lo tanto, lo hemos dejado comentado. Lo probaremos luego cuando hagamos las ampliaciones.`**
+**`Si añadimos la tasa de cruces por cero, la puntuación total disminuye. Hemos provado con diferentes umbrales pero no conseguimos subirla. Por lo tanto, lo hemos dejado comentado. Lo probaremos luego cuando hagamos las ampliaciones. Este es el resultado que obtenemos:`**
 
-	    Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que
-		en esta práctica es de 15 ms.
+<img src="img/score_zcr.png" width="640" align="center">
 
-      - Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
-	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
-		ilustrativa del resultado de ambos detectores.
+Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que en esta práctica es de 15 ms.
+
+- Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica ilustrativa del resultado de ambos detectores.
   
   * Optimice los parámetros de su sistema de detección de pitch e inserte una tabla con las tasas de error
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
@@ -131,9 +130,12 @@ Ejercicios básicos
 
 **` Aquí podemos ver como ha quedado la puntuación total después de haber ajustado bien los umbrales:`**
 
+<img src="img/score_normal.png" width="640" align="center">
+
 **` La condición para voiced y unvoiced ha sido la siguiente: `**
 
-   
+<img src="img/condiciones.png" width="640" align="center">
+
    
    * Inserte una gráfica en la que se vea con claridad el resultado de su detector de pitch junto al del
      detector de Wavesurfer. Aunque puede usarse Wavesurfer para obtener la representación, se valorará
