@@ -123,6 +123,10 @@ Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
 Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que en esta práctica es de 15 ms.
 
 - Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica ilustrativa del resultado de ambos detectores.
+
+**` Utilizando una señal de prueba, el resultado de nuestro pitch calculado con el de wavesurfer es el siguiente:`**
+
+<img src="img/francesc_net_update.png" width="640" align="center">
   
   * Optimice los parámetros de su sistema de detección de pitch e inserte una tabla con las tasas de error
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
