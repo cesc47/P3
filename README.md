@@ -183,7 +183,7 @@ Ejercicios de ampliación
   
   **`El center clipping es una técnica sencilla que consiste en básicamente anular los valores de la señal de magnitud pequeña. Con ello se prentende aumentar la intensidad de ármonicos de orden elevado, gracias a introducir una disotrsion no lineal, y aumentar la robustez frente al ruido.`**
   
-    **`Podemos ver que hemos hecho el center-clipping con offset i sin offset. Hemos provado los dos y nos daba más puntuación el center clipping sin offset. Aún así, hemos dejado la opción de usar el center clipping con offset si queremos. El código queda de la siguiente forma:`**
+    **`Podemos ver que hemos hecho el center-clipping con offset i sin offset. Hemos probado los dos y nos daba más puntuación el center clipping sin offset. Aún así, hemos dejado la opción de usar el center clipping con offset si queremos. El código queda de la siguiente forma:`**
   
      <img src="img/ccl.png" width="640" align="center">
      
