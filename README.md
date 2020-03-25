@@ -189,7 +189,7 @@ Ejercicios de ampliación
      
     **`Implementación del filtrado paso bajo y filtrado paso alto: lo que pretendemos es eliminar tanto ruido comos sea posible y particularmente, el filtrado paso bajo para quedarnos con la parte del principio del espectro, donde se aprecian mejor los armónicos. Hemos establecido los valores en función de los resultados del test de pitch. Hemos realizado el cálculo de los coeficientes de manera manual y nos hemos creado un objecto DigitalFilter que a su vez llamará a una función para realizar el filtrado. El cálculo de los coeficientes de los filtros es el siguiente: `**
     
-    
+    <img src="img/filtros.jpg" width="640" align="center">
    
     **` El código resultante es el siguiente: `**
       
