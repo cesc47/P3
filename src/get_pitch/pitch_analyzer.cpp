@@ -1,3 +1,5 @@
+
+
 /// @file
 
 #include <iostream>
@@ -8,6 +10,9 @@ using namespace std;
 
 /// Name space of UPC
 namespace upc {
+  float noise_power = 0;
+  float frame_number = 0;
+
   void PitchAnalyzer::autocorrelation(const vector<float> &x, vector<float> &r) const { //x entrada
         //HECHO compute the autocorrelation r[l]
     for (unsigned int k = 0; k < r.size(); ++k) {
@@ -63,12 +68,11 @@ namespace upc {
     /// \TODO Implement a rule to decide whether the sound is voiced or not.
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
-    
-    
-    if (r1norm > 0.9 || rmaxnorm > 0.6){
-      return false;
-    }
 
+    // Case voiced  
+      if ((r1norm > 0.866 && rmaxnorm > 0.294 && pot > noise_power))  return false;
+
+    // Case unvoiced
     return true;
   }
 
@@ -84,19 +88,13 @@ namespace upc {
 
     //Compute correlation
     autocorrelation(x, r);
+    if (frame_number == 0)  noise_power = 10*log10(r[0]) * 0.93;
 
-    vector<float>::const_iterator iR = r.begin(), iRMax = iR;
+    frame_number++;
 
+    vector<float>::const_iterator iR = r.begin() + npitch_min, iRMax = iR;     // In either case, the lag should not exceed that of the minimum value of the pitch.
     /// \HECHO 
     /// Find the lag of the maximum value of the autocorrelation away from the origin.<br>
-
-    /// The first negative value of the autocorrelation.
-    while(*iR > 0)  iR++;   	
-
-    /// In either case, the lag should not exceed that of the minimum value of the pitch.
-    if (iR < (r.begin() + npitch_min))  iR += npitch_min; 
-    
-    iRMax = iR; 
 
     while(iR != r.end()){     
       if(*iR > *iRMax)  iRMax = iR;       // Posición donde está el máximo 
@@ -106,7 +104,8 @@ namespace upc {
     /// The lag corresponding to the maximum value of the pitch.
     unsigned int lag = iRMax - r.begin();
     
-#if 1
+    
+#if 0
     cout << "valor autocorrelación: " << *iRMax << '\t' << "lag:" << lag << endl; 
 #endif
 
@@ -115,9 +114,9 @@ namespace upc {
     //You can print these (and other) features, look at them using wavesurfer
     //Based on that, implement a rule for unvoiced
     //change to #if 1 and compile
-#if 1
+#if 0
     if (r[0] > 0.0F)
-      cout << "pow: " << pot << '\t' << "Th1: " <<r[1]/r[0] << '\t' << "Th2: " << r[lag]/r[0] << endl;
+      cout << "pow: " << pot << '\t' << "Th1: " <<r[1]/r[0] << '\t' << "Th2: " << r[lag]/r[0] << '\t' << " ZCR " << ZCR << endl;
 #endif
     
     if (unvoiced(pot, r[1]/r[0], r[lag]/r[0]))

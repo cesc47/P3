@@ -18,7 +18,7 @@ namespace upc {
   public:
 	/// Wndow type
     enum Window {
-		RECT, 						///< Rectangular window
+		RECT, 						///< Rectangular window. The most obvious form of iterator is a pointer. A pointer can point to elements in an array, and can iterate through them using the increment operator (++). But, all iterators do not have similar functionality as that of pointers. 
 		HAMMING						///< Hamming window
 	};
 
@@ -45,6 +45,9 @@ namespace upc {
 	/// Returns true is the frame is unvoiced
 	///
     bool unvoiced(float pot, float r1norm, float rmaxnorm) const;
+
+
+
 
 
   public:
