@@ -157,24 +157,9 @@ Recuerde configurar los paneles de datos para que el desplazamiento de ventana s
 
 <img src="img/python_comparacion.png" width="640" align="center">
 
-**` Y el resultado el siguiente:**
+**` Y el resultado el siguiente:'**
 
 <img src="img/grafica_comparacion.png" width="640" align="center">
-
-
-
-
-
-
-
-
-
-
-
-   
-
-   
-   
 
 Ejercicios de ampliación
 ------------------------
