@@ -149,6 +149,32 @@ Recuerde configurar los paneles de datos para que el desplazamiento de ventana s
    
    <img src="img/pitch_comparation.png" width="640" align="center">
    
+   **` Como se comenta en el propio enunciado, además de la propia representación de wavesurfer, hemos hecho un código en python para poder representarlo con mayor calidad. Hemos hecho un Save Data File en el pitch contour para extraer un fichero .f0 con las siguientes propiedades:`**
+
+<img src="img/properties_wavesurfer.png" width="640" align="center">
+
+**` El programa usado es el siguiente:`**
+
+<img src="img/python_comparacion.png" width="640" align="center">
+
+**` Y el resultado el siguiente:**
+
+<img src="img/grafica_comparacion.png" width="640" align="center">
+
+
+
+
+
+
+
+
+
+
+
+   
+
+   
+   
 
 Ejercicios de ampliación
 ------------------------
