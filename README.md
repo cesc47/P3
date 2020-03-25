@@ -174,7 +174,7 @@ Ejercicios de ampliación
   
     **`Podemos ver que hemos hecho el center-clipping con offset i sin offset. Hemos provado los dos y nos daba más puntuación el center clipping sin offset. Aún así, hemos dejado la opción de usar el center clipping con offset si queremos. El código queda de la siguiente forma:`**
   
-     <img src="img/cc.png" width="640" align="center">
+     <img src="img/ccl.png" width="640" align="center">
 
   
     **`Este es el filtrado paso bajo:`**
