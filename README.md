@@ -58,7 +58,7 @@ Ejercicios básicos
 **`Podemos observar el código usado para determinar el mejor candidato para el periodo de pitch en el siguiente fragmento:`**
 
 
-<img src="img/compute_pitch.png" width="640" align="center">
+<img src="img/lag.png" width="640" align="center">
 
 **`El resultado, mostrando por pantalla, del código anterior es el siguiente:`**
 
@@ -92,23 +92,74 @@ Ejercicios básicos
 		(r[0]), la autocorrelación normalizada de uno (r1norm = r[1] / r[0]) y el valor de la
 		autocorrelación en su máximo secundario (rmaxnorm = r[lag] / r[0]).
 
-		Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
+**`Podemos observar la señal y el cálculo de su pitch. La señal debe tener un pitch aproximadamente constante debido a que se trata de la repetición de la vocal a `**
+		
+<img src="img/f0_1.png" width="640" align="center">
+		 
+**`Los candidatos a la sonoridad de voz son los siguientes para cada trama: `**
+		 
+<img src="img/r(0)_values.png" width="640" align="center">
+		 
+**` Para cada trama, tenemos representado: el valor de la autocorrelación en el pitch, seguidamente la potencia de esa trama realizado con el 10log(r(0)) (aprox de -20 dB), además de la autocorrelación normalizada (aprox 0.9) y en su máximo secundario (aprox 0.6). Estos valores corresponden a un tramo de señal sonora. Si lo realizamos con una señal aleatoria: `**
+		 
+**`Para la mejora de decisión si es sonoro o sordo, hemos mejorado el sistema utilizando la tasa de cruces por cero con el siguiente código (basado en el cálculo realizado en la práctica 1), además hemos utilizado la potencia para establecer más condiciones en la condición: `**
+		
+<img src="img/update_compute_pitch.png" width="640" align="center">
+		
+**`Hemos añadido tres variables (noise_power, ZCR_threshold y number_frames) donde las dos primeras serán para establecer un umbral a partir de la primera trama (cuando number_frame = 0). Estos valores los utilizaremos para decidir si la trama es sorda o sonora en la función unvoiced. Nos queda de la manera siguiente:  `**
+		 
+<img src="img/nuevo_unvoiced.png" width="640" align="center">
+		 
+**` El resultado de una señal de voz de prueba en la cual decimos la palabra mama es la siguiente:`**
+		 
+<img src="img/mama.png" width="640" align="center">
 
-	    Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que
-		en esta práctica es de 15 ms.
+Puede considerar, también, la conveniencia de usar la tasa de cruces por cero.
+		
+**`Si añadimos la tasa de cruces por cero, la puntuación total disminuye. Hemos provado con diferentes umbrales pero no conseguimos subirla. Por lo tanto, lo hemos dejado comentado. Lo probaremos luego cuando hagamos las ampliaciones. Este es el resultado que obtenemos:`**
 
-      - Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
-	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
-		ilustrativa del resultado de ambos detectores.
+<img src="img/score_zcr.png" width="640" align="center">
+
+Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que en esta práctica es de 15 ms.
+
+- Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica ilustrativa del resultado de ambos detectores.
+
+**` Utilizando una señal de prueba, el resultado de nuestro pitch calculado con el de wavesurfer es el siguiente:`**
+
+<img src="img/francesc_net_update.png" width="640" align="center">
   
   * Optimice los parámetros de su sistema de detección de pitch e inserte una tabla con las tasas de error
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
 	`pitch_db/train`..
 
+**` Aquí podemos ver como ha quedado la puntuación total después de haber ajustado bien los umbrales:`**
+
+<img src="img/score_normal.png" width="640" align="center">
+
+**` La condición para voiced y unvoiced ha sido la siguiente: `**
+
+<img src="img/condiciones.png" width="640" align="center">
+
+   
    * Inserte una gráfica en la que se vea con claridad el resultado de su detector de pitch junto al del
      detector de Wavesurfer. Aunque puede usarse Wavesurfer para obtener la representación, se valorará
 	 el uso de alternativas de mayor calidad (particularmente Python).
+	 
+   **` El resultado de la comparación utilizando el wavesurfer es el siguiente:`**
    
+   <img src="img/pitch_comparation.png" width="640" align="center">
+   
+   **` Como se comenta en el propio enunciado, además de la propia representación de wavesurfer, hemos hecho un código en python para poder representarlo con mayor calidad. Hemos hecho un Save Data File en el pitch contour para extraer un fichero .f0 con las siguientes propiedades:`**
+
+<img src="img/properties_wavesurfer.png" width="640" align="center">
+
+**` El programa usado es el siguiente:`**
+
+<img src="img/python_comparacion.png" width="640" align="center">
+
+**` Y el resultado el siguiente:'**
+
+<img src="img/grafica_comparacion.png" width="640" align="center">
 
 Ejercicios de ampliación
 ------------------------
@@ -129,7 +180,31 @@ Ejercicios de ampliación
   Entre las posibles mejoras, puede escoger una o más de las siguientes:
 
   * Técnicas de preprocesado: filtrado paso bajo, *center clipping*, etc.
+  
+  **`El center clipping es una técnica sencilla que consiste en básicamente anular los valores de la señal de magnitud pequeña. Con ello se prentende aumentar la intensidad de ármonicos de orden elevado, gracias a introducir una disotrsion no lineal, y aumentar la robustez frente al ruido.`**
+  
+    **`Podemos ver que hemos hecho el center-clipping con offset i sin offset. Hemos probado los dos y nos daba más puntuación el center clipping sin offset. Aún así, hemos dejado la opción de usar el center clipping con offset si queremos. El código queda de la siguiente forma:`**
+  
+     <img src="img/ccl.png" width="640" align="center">
+     
+    **`Implementación del filtrado paso bajo y filtrado paso alto: lo que pretendemos es eliminar tanto ruido comos sea posible y particularmente, el filtrado paso bajo para quedarnos con la parte del principio del espectro, donde se aprecian mejor los armónicos. Hemos establecido los valores en función de los resultados del test de pitch. Hemos realizado el cálculo de los coeficientes de manera manual y nos hemos creado un objecto DigitalFilter que a su vez llamará a una función para realizar el filtrado. El cálculo de los coeficientes de los filtros es el siguiente: `**
+    
+    <img src="img/filtros.jpg" width="640" align="center">
+   
+    **` El código resultante es el siguiente: `**
+      
+     <img src="img/f.png" width="640" align="center">
+
+
   * Técnicas de postprocesado: filtro de mediana, *dynamic time warping*, etc.
+  
+      **`Hemos usado el filtro de mediana: `**
+     
+     <img src="img/fm.png" width="640" align="center">
+     
+     **`Con este algoritmo lo que hacemos constantemente es hacer una copia de la muestra anterior de f0, la muestra actual de f0 y la siguiente muestra de f0. Entonces, ordenamos el vector donde hay las tres copias y escojemos la mediana.`**
+
+
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
