@@ -157,9 +157,14 @@ Recuerde configurar los paneles de datos para que el desplazamiento de ventana s
 
 <img src="img/python_comparacion.png" width="640" align="center">
 
-**` Y el resultado el siguiente:'**
+**` Y el resultado el siguiente:´**
 
 <img src="img/grafica_comparacion.png" width="640" align="center">
+
+**` Por si se quiere comprar el uso de ese código con otras señales y ficheros se ha añadido al repositorio una carpeta llamada comparacion_detectores donde dentro está el código usado con las señal para hacer la demostración.´**
+
+
+
 
 Ejercicios de ampliación
 ------------------------
