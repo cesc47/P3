@@ -172,7 +172,25 @@ Ejercicios de ampliación
   
   **`El center clipping es una técnica sencilla que consiste en básicamente anular los valores de la señal de magnitud pequeña. Con ello se prentende aumentar la intensidad de ármonicos de orden elevado, gracias a introducir una disotrsion no lineal, y aumentar la robustez frente al ruido.`**
   
+    **`Podemos ver que hemos hecho el center-clipping con offset i sin offset. Hemos provado los dos y nos daba más puntuación el center clipping sin offset. Aún así, hemos dejado la opción de usar el center clipping con offset si queremos. El código queda de la siguiente forma:`**
+  
+     <img src="img/cc.png" width="640" align="center">
+
+  
+    **`Este es el filtrado paso bajo:`**
+      
+     <img src="img/f.png" width="640" align="center">
+
+
   * Técnicas de postprocesado: filtro de mediana, *dynamic time warping*, etc.
+  
+      **`Hemos usado el filtro de mediana: `**
+     
+     <img src="img/fm.png" width="640" align="center">
+     
+     **`Con este algoritmo lo que hacemos constantemente es hacer una copia de la muestra anterior de f0, la muestra actual de f0 y la siguiente muestra de f0. Entonces, ordenamos el vector donde hay las tres copias y escojemos la mediana.`**
+
+
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
