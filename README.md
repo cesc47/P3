@@ -186,9 +186,12 @@ Ejercicios de ampliación
     **`Podemos ver que hemos hecho el center-clipping con offset i sin offset. Hemos provado los dos y nos daba más puntuación el center clipping sin offset. Aún así, hemos dejado la opción de usar el center clipping con offset si queremos. El código queda de la siguiente forma:`**
   
      <img src="img/ccl.png" width="640" align="center">
-
-  
-    **`Este es el filtrado paso bajo:`**
+     
+    **`Implementación del filtrado paso bajo y filtrado paso alto: lo que pretendemos es eliminar tanto ruido comos sea posible y particularmente, el filtrado paso bajo para quedarnos con la parte del principio del espectro, donde se aprecian mejor los armónicos. Hemos establecido los valores en función de los resultados del test de pitch. Hemos realizado el cálculo de los coeficientes de manera manual y nos hemos creado un objecto DigitalFilter que a su vez llamará a una función para realizar el filtrado. El cálculo de los coeficientes de los filtros es el siguiente: `**
+    
+    
+   
+    **` El código resultante es el siguiente: `**
       
      <img src="img/f.png" width="640" align="center">
 
