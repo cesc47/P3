@@ -47,8 +47,9 @@ namespace upc {
     bool unvoiced(float pot, float r1norm, float rmaxnorm) const;
 
 
+    void amdf(const std::vector<float> &x, std::vector<float> &amdf) const;
 
-
+    void cepstrum(const std::vector<float> &x, std::vector<float> &r) const;
 
   public:
     PitchAnalyzer(	unsigned int fLen,			///< Frame length in samples

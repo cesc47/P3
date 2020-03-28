@@ -1,10 +1,10 @@
-
-
 /// @file
 
 #include <iostream>
 #include <math.h>
 #include "pitch_analyzer.h"
+#include "ffft/FFTReal.h"
+#include "ffft/FFTReal.hpp"
 
 using namespace std;
 
@@ -12,8 +12,11 @@ using namespace std;
 namespace upc {
   float noise_power = 0;
   float frame_number = 0;
-
-  void PitchAnalyzer::autocorrelation(const vector<float> &x, vector<float> &r) const { //x entrada
+  const int N = 4096;
+  float f[N];
+  ffft::FFTReal <float> fft_object (N);
+  
+  void PitchAnalyzer::autocorrelation(const vector<float> &x, vector<float> &r) const { 
         //HECHO compute the autocorrelation r[l]
     for (unsigned int k = 0; k < r.size(); ++k) {
         for(unsigned int i = 0; i < (x.size() - k); ++i){ 
@@ -27,6 +30,32 @@ namespace upc {
 
     if (r[0] == 0.0F) //to avoid log() and divide zero 
       r[0] = 1e-10; 
+  }
+
+  void PitchAnalyzer::amdf(const vector<float> &x, vector<float> &amdf) const {
+    for (unsigned int k = 0; k < amdf.size(); ++k){
+      for(unsigned int i = 0; i < x.size() - k ; ++i){  
+          //amdf[k] += fabs(x[i] - x[i+k]);
+          amdf[k] += (fabs(x[i] - x[i+k])) * (fabs(x[i] - x[i+k])) * (fabs(x[i] - x[i+k])) ;
+        }
+    }
+    
+    //for (unsigned int k = 0; k < amdf.size(); ++k) cout << "Muestra de amdf" << k << ": " << amdf[k] << '\n';
+    //for (unsigned int i = 0; i < x.size(); ++i) cout << "Muestra de x" << i << ": " << x[i] << '\n';
+
+  }
+
+  void PitchAnalyzer::cepstrum(const vector<float> &x, vector<float> &r) const { 
+    
+      
+      fft_object.do_fft (f, &x[0]);
+      for(unsigned int i = 0; i < N; i++){
+        cout << f[i] << endl;
+        f[i] = log10(fabs(f[i]));
+      }
+      fft_object.do_ifft(f, &r[0]);
+
+
   }
 
   void PitchAnalyzer::set_window(Window win_type) {
@@ -84,10 +113,19 @@ namespace upc {
     for (unsigned int i=0; i<x.size(); ++i)
       x[i] *= window[i];
 
-    vector<float> r(npitch_max);      //npitch_max = K
+    vector<float> r(npitch_max);             //npitch_max = K
+    //vector<float> c(npitch_max);             //npitch_max = K
+    vector<float> amdf_var(npitch_max);      //npitch_max = K
+
+    //Compute cepstrum
+    //cepstrum(x, c);
 
     //Compute correlation
     autocorrelation(x, r);
+        
+    //Compute amdf
+    amdf(x, amdf_var);
+
     if (frame_number == 0)  noise_power = 10*log10(r[0]) * 0.93;
 
     frame_number++;
@@ -104,24 +142,37 @@ namespace upc {
     /// The lag corresponding to the maximum value of the pitch.
     unsigned int lag = iRMax - r.begin();
     
-    
-#if 0
-    cout << "valor autocorrelación: " << *iRMax << '\t' << "lag:" << lag << endl; 
-#endif
 
-    float pot = 10 * log10(r[0]);
 
-    //You can print these (and other) features, look at them using wavesurfer
-    //Based on that, implement a rule for unvoiced
-    //change to #if 1 and compile
-#if 0
-    if (r[0] > 0.0F)
-      cout << "pow: " << pot << '\t' << "Th1: " <<r[1]/r[0] << '\t' << "Th2: " << r[lag]/r[0] << '\t' << " ZCR " << ZCR << endl;
-#endif
+    vector<float>::const_iterator iR2 = amdf_var.begin() + npitch_min, iRMin = iR2;    
+
     
-    if (unvoiced(pot, r[1]/r[0], r[lag]/r[0]))
+    for (unsigned int lag_amdf = npitch_min; lag_amdf < npitch_max; lag_amdf++){
+      if(*iR2 < *iRMin)    iRMin = iR2;
+      iR2++;
+    }
+
+    unsigned int lag_amdf = iRMin - amdf_var.begin();
+
+    
+    //cout << "mate: " << (float) samplingFreq / lag_amdf << endl;  
+
+
+
+  #if 0
+      cout << "valor autocorrelación: " << *iRMax << '\t' << "lag:" << lag << endl; 
+  #endif
+
+      float pot = 10 * log10(r[0]);
+
+  #if 0
+      if (r[0] > 0.0F)
+        cout << "pow: " << pot << '\t' << "Th1: " <<r[1]/r[0] << '\t' << "Th2: " << r[lag]/r[0] << '\t' << " ZCR " << ZCR << endl;
+  #endif 
+    if (unvoiced(pot, r[1]/r[0], r[lag]/r[0])){
       return 0;
+    }  
     else
-      return (float) samplingFreq/(float) lag;
+      return (float) samplingFreq/(float) lag_amdf;
   }
 }
