@@ -212,6 +212,17 @@ Ejercicios de ampliación
 
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
+    **`Hemos usado el AMDF (average magnitude difference function):`**
+    
+    <img src="img/formulaAMDF.png" width="640" align="center">
+    
+    **`El código usado solo tiene los siguientes cambios:´**
+
+	<img src="img/codigoAMDF.png" width="640" align="center">
+	<img src="img/codigolagAMDF.png" width="640" align="center">
+    
+    **`Con este algoritmo hemos obtenido un resultado de (¿?¿?), por lo que perdemos calidad respeccto los resultados del algoritmo de la autocorrelación. 
+    
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
