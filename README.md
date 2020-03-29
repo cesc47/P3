@@ -212,10 +212,40 @@ Ejercicios de ampliación
 
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
+    **`Hemos usado el AMDF (average magnitude difference function):`**
+    
+    <img src="img/formulaAMDF.png" width="640" align="center">
+    
+    **`El código usado solo tiene los siguientes cambios:´**
+
+	<img src="img/codigoAMDF.png" width="640" align="center">
+	
+	<img src="img/codigolagAMDF.png" width="640" align="center">
+    
+    **`Con este algoritmo hemos obtenido un resultado de alrededor del 86%, por lo que perdemos calidad respeccto los resultados del algoritmo de la autocorrelación. El AMDF está especializado en disminuir los fine errors, aunque puede dar problemas para determinar si el sonido es sonoro o sordo.´**
+    
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
-
+  
+  **` En teoria se nos ha mencionado el ASDF (average squared difference function) y lo hemos implementado del mismo modo que el AMDF, solamente modificando lo siguiente:`**
+  
+  <img src="img/codigoASDF.png" width="640" align="center">
+  
+  **`Con esta implementación hemos obtenido una mejora sustanciable, hablamos de un 90.74%.`**
+  
+  **`Además, indagando por internet, encontramos el siguiente paper de Ghulam Muhammad del Departamento de 'Computer Engineering' de la Universidad King Saud de Arabia Saudi donde expone algunos algoritmos de detección de pitch. Uno de ellos es el circular AMDF (CAMDF):`**
+    
+    <img src="img/formulaCAMF.png" width="640" align="center">
+    
+  **`Esta función mejora la tendencia de caida del AMDF. La única parte del código que hemos modificado es la siguiente:`**
+  
+    <img src="img/codigoCAMDF.png" width="640" align="center">
+   
+  **`Con esta función obtenemos un 91.18%, que es el máximo obtenido hasta el momento:`**
+  
+    <img src="img/porcentajeCAMDF.png" width="640" align="center">
+      	
   Encontrará más información acerca de estas técnicas en las [Transparencias del Curso](https://atenea.upc.edu/pluginfile.php/2908770/mod_resource/content/3/2b_PS Techniques.pdf)
   y en [Spoken Language Processing](https://discovery.upc.edu/iii/encore/record/C__Rb1233593?lang=cat).
   También encontrará más información en los anexos del enunciado de esta práctica.
@@ -226,6 +256,16 @@ Ejercicios de ampliación
   También se valorará la realización de un estudio de los parámetros involucrados. Por ejemplo, si se opta
   por implementar el filtro de mediana, se valorará el análisis de los resultados obtenidos en función de
   la longitud del filtro.
+  
+ **`Hemos implementado el filtro de mediana anteriormente (3 coeficientes). Nos daba un buen resultado, ya que aumentaba considerablemente la puntuación total. Lo que hace el filtro de mediana es corregir picos de ruido (al coger la muestra del medio siempre). Hemos probado en implementar con 5 coeficientes, tal y como podremos ver en la siguiente imagen, pero el resultado es peor (bajamos un 0.5%). Esto, puede ser debido a que al aumentar los coeficientes, ya no podemos corregir las muestras simples de picos de ruido.`**
+
+  <img src="img/m.png" width="640" align="center">
+
+
+
+
+
+**`Comentario: Hemos dejado en el código explicitamente el cálculo de autocorrelación y AMDF. Si se quiere probar una u otra simplemente hay que canviar lag (autocorrelación) por lag_amdf de la ultima sentencia de código de pitch_analyzer.cpp`**
    
 
 Evaluación *ciega* del detector
