@@ -36,7 +36,7 @@ namespace upc {
     for (unsigned int k = 0; k < amdf.size(); ++k){
       for(unsigned int i = 0; i < x.size() - k ; ++i){  
           //amdf[k] += fabs(x[i] - x[i+k]);
-          amdf[k] += (fabs(x[i] - x[i+k])) * (fabs(x[i] - x[i+k])) * (fabs(x[i] - x[i+k])) ;
+          amdf[k] += (fabs(x[i] - x[i+k])) * (fabs(x[i] - x[i+k])) ;
         }
     }
     
@@ -173,6 +173,6 @@ namespace upc {
       return 0;
     }  
     else
-      return (float) samplingFreq/(float) lag_amdf;
+      return (float) samplingFreq/(float) lag;
   }
 }

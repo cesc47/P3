@@ -118,10 +118,7 @@ int main(int argc, const char *argv[]) {
   /// or time-warping may be used.
 
 
-    /*vector<int> our_vector{3, 5, 4, 1, 2};
-    sort(our_vector.begin(), our_vector.end());
-    for(unsigned int i = 0; i < our_vector.size(); i++)  cout << our_vector[i] << endl; 
-    */
+
 
     for(unsigned int i = 1; i < f0.size()-1; i++){
         vector<float> our_vector{f0[i-1], f0[i], f0[i+1]};
@@ -129,18 +126,8 @@ int main(int argc, const char *argv[]) {
         f0[i] = our_vector[1];
     }
 
-    /*for (int i = 1; i < (f0.size() - 1); i++){
-    aux[0] = f0[i-1];
-    aux[1] = f0[i];
-    aux[2] = f0[i+1];
-    sort(aux.begin(), aux.end());
-    f0[i] = aux[1];
-  }*/
 
 
-  /* for (int i = 1; i<((int)f0.size()-1); i++){
-    if (f0[i+1] != 0 && f0[i-1]!=0)   f0[i] = (f0[i-1]+f0[i+1])/2;
-  }*/
 
   // Write f0 contour into the output file
   ofstream os(output_txt);
