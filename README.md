@@ -227,9 +227,10 @@ Ejercicios de ampliación
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
-  **` En teoria se nos ha mencionado el ASDF (average squared difference function) y lo hemos implementado del mismo modo que el AMDF, solamente modificando lo siguiente:´**
   
-  <img src="img/codigolagASDF.png" width="640" align="center">
+  **` En teoria se nos ha mencionado el ASDF (average squared difference function) y lo hemos implementado del mismo modo que el AMDF, solamente modificando lo siguiente:`**
+  
+  <img src="img/codigoASDF.png" width="640" align="center">
   
   **`Con esta implementación hemos obtenido una mejora sustanciable, hablamos de un (?¿?¿%).`**
   
