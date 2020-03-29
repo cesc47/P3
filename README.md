@@ -257,6 +257,14 @@ Ejercicios de ampliación
   por implementar el filtro de mediana, se valorará el análisis de los resultados obtenidos en función de
   la longitud del filtro.
   
+ **`Hemos implementado el filtro de mediana anteriormente (3 coeficientes). Nos daba un buen resultado, ya que aumentaba considerablemente la puntuación total. Lo que hace el filtro de mediana es corregir picos de ruido (al coger la muestra del medio siempre). Hemos probado en implementar con 5 coeficientes, tal y como podremos ver en la siguiente imagen, pero el resultado es peor (bajamos un 0.5%). Esto, puede ser debido a que al aumentar los coeficientes, ya no podemos corregir las muestras simples de picos de ruido.`**
+
+  <img src="img/Captura de Pantalla 2020-03-29 a les 14.10.04.png.png" width="640" align="center">
+
+
+
+
+
 **`Comentario: Hemos dejado en el código explicitamente el cálculo de autocorrelación y AMDF. Si se quiere probar una u otra simplemente hay que canviar lag (autocorrelación) por lag_amdf de la ultima sentencia de código de pitch_analyzer.cpp`**
    
 
