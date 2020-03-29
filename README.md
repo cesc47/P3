@@ -236,7 +236,7 @@ Ejercicios de ampliación
   
   **`Además, indagando por internet, encontramos el siguiente paper de Ghulam Muhammad del Departamento de 'Computer Engineering' de la Universidad King Saud de Arabia Saudi donde expone algunos algoritmos de detección de pitch. Uno de ellos es el circular AMDF (CAMDF):`**
     
-    <img src="img/formulaCAMDF.png" width="640" align="center">
+    <img src="img/formulaCAMF.png" width="640" align="center">
     
   **`Esta función mejora la tendencia de caida del AMDF. La única parte del código que hemos modificado es la siguiente:`**
   
