@@ -219,14 +219,32 @@ Ejercicios de ampliación
     **`El código usado solo tiene los siguientes cambios:´**
 
 	<img src="img/codigoAMDF.png" width="640" align="center">
+	
 	<img src="img/codigolagAMDF.png" width="640" align="center">
     
-    **`Con este algoritmo hemos obtenido un resultado de (¿?¿?), por lo que perdemos calidad respeccto los resultados del algoritmo de la autocorrelación. 
+    **`Con este algoritmo hemos obtenido un resultado de (¿?¿?), por lo que perdemos calidad respeccto los resultados del algoritmo de la autocorrelación.´**
     
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
-
+  **` En teoria se nos ha mencionado el ASDF (average squared difference function) y lo hemos implementado del mismo modo que el AMDF, solamente modificando lo siguiente:´**
+  
+  <img src="img/codigolagASDF.png" width="640" align="center">
+  
+  **`Con esta implementación hemos obtenido una mejora sustanciable, hablamos de un (?¿?¿%).`**
+  
+  **`Además, indagando por internet, encontramos el siguiente paper de Ghulam Muhammad del Departamento de 'Computer Engineering' de la Universidad King Saud de Arabia Saudi donde expone algunos algoritmos de detección de pitch. Uno de ellos es el circular AMDF (CAMDF):`**
+    
+    <img src="img/formulaCAMDF.png" width="640" align="center">
+    
+  **`Esta función mejora la tendencia de caida del AMDF. La única parte del código que hemos modificado es la siguiente:`**
+  
+    <img src="img/codigoCAMDF.png" width="640" align="center">
+   
+  **`Con esta función obtenemos un 91.18%, que es el máximo obtenido hasta el momento:`**
+  
+    <img src="img/porcentajeCAMDF.png" width="640" align="center">
+      	
   Encontrará más información acerca de estas técnicas en las [Transparencias del Curso](https://atenea.upc.edu/pluginfile.php/2908770/mod_resource/content/3/2b_PS Techniques.pdf)
   y en [Spoken Language Processing](https://discovery.upc.edu/iii/encore/record/C__Rb1233593?lang=cat).
   También encontrará más información en los anexos del enunciado de esta práctica.
