@@ -222,7 +222,7 @@ Ejercicios de ampliación
 	
 	<img src="img/codigolagAMDF.png" width="640" align="center">
     
-    **`Con este algoritmo hemos obtenido un resultado de (¿?¿?), por lo que perdemos calidad respeccto los resultados del algoritmo de la autocorrelación.´**
+    **`Con este algoritmo hemos obtenido un resultado de alrededor del 86%, por lo que perdemos calidad respeccto los resultados del algoritmo de la autocorrelación. El AMDF está especializado en disminuir los fine errors, aunque puede dar problemas para determinar si el sonido es sonoro o sordo.´**
     
   * Optimización **demostrable** de los parámetros que gobiernan el detector, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
@@ -232,7 +232,7 @@ Ejercicios de ampliación
   
   <img src="img/codigoASDF.png" width="640" align="center">
   
-  **`Con esta implementación hemos obtenido una mejora sustanciable, hablamos de un (?¿?¿%).`**
+  **`Con esta implementación hemos obtenido una mejora sustanciable, hablamos de un 90.74%.`**
   
   **`Además, indagando por internet, encontramos el siguiente paper de Ghulam Muhammad del Departamento de 'Computer Engineering' de la Universidad King Saud de Arabia Saudi donde expone algunos algoritmos de detección de pitch. Uno de ellos es el circular AMDF (CAMDF):`**
     
@@ -256,6 +256,8 @@ Ejercicios de ampliación
   También se valorará la realización de un estudio de los parámetros involucrados. Por ejemplo, si se opta
   por implementar el filtro de mediana, se valorará el análisis de los resultados obtenidos en función de
   la longitud del filtro.
+  
+**`Comentario: Hemos dejado en el código explicitamente el cálculo de autocorrelación y AMDF. Si se quiere probar una u otra simplemente hay que canviar lag (autocorrelación) por lag_amdf de la ultima sentencia de código de pitch_analyzer.cpp`**
    
 
 Evaluación *ciega* del detector
